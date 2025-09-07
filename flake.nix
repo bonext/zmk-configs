@@ -35,8 +35,16 @@
       update = zmk-nix.packages.${system}.update;
     });
 
-    devShells = forAllSystems (system: {
-      default = zmk-nix.devShells.${system}.default;
-    });
+    devShells = forAllSystems (system:
+      let
+        pkgs = nixpkgs.legacyPackages.${system};
+      in {
+        default = pkgs.mkShell {
+          inputsFrom = [ zmk-nix.devShells.${system}.default ];
+          buildInputs = [
+            pkgs.nixd
+          ];
+        };
+      });
   };
 }
