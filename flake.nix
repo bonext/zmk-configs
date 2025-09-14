@@ -12,27 +12,23 @@
     forAllSystems = nixpkgs.lib.genAttrs (nixpkgs.lib.attrNames zmk-nix.packages);
   in {
     packages = forAllSystems (system: rec {
-      default = firmware;
+      default = taira;
 
-      firmware = zmk-nix.legacyPackages.${system}.buildSplitKeyboard {
-        name = "firmware";
-
-        src = nixpkgs.lib.sourceFilesBySuffices self [ ".board" ".cmake" ".conf" ".defconfig" ".dts" ".dtsi" ".json" ".keymap" ".overlay" ".shield" ".yml" "_defconfig" ];
-
+      lily58 = zmk-nix.legacyPackages.${system}.buildSplitKeyboard {
+        name = "lily58";
         board = "nice_nano_v2";
         shield = "lily58_%PART%";
-
-        zephyrDepsHash = "sha256-m2iLXJLbTYK008R1R+dO/9INNNA9+tfAFIg6EXu5ywk=";
-
-        meta = {
-          description = "ZMK firmware";
-          license = nixpkgs.lib.licenses.mit;
-          platforms = nixpkgs.lib.platforms.all;
-        };
+        src = ./keyboards/lily58/.;
+        zephyrDepsHash = "sha256-y30Odzj7vJ5/NXubd/pTsHWJNJqBN6vg7j0cnCGEwFE=";
       };
 
-      flash = zmk-nix.packages.${system}.flash.override { inherit firmware; };
-      update = zmk-nix.packages.${system}.update;
+      taira = zmk-nix.legacyPackages.${system}.buildSplitKeyboard {
+        name = "taira";
+        board = "nice_nano_v2";
+        shield = "taira_%PART%";
+        src = ./keyboards/taira/.;
+        zephyrDepsHash = "sha256-y30Odzj7vJ5/NXubd/pTsHWJNJqBN6vg7j0cnCGEwFE=";
+      };
     });
 
     devShells = forAllSystems (system:
