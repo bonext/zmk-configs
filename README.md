@@ -14,15 +14,15 @@ Then manually flash contents of `result/`
 
 ## Keyboards
 
-### [Lily58][./keyboards/lily58/]
+### [Lily58](./keyboards/lily58)
 
 ![layout](./keyboards/lily58/lily58.svg)
 
 My configuration based on what was [included in ZMK][lily58-cfg].
 
-### [taira][./keyboards/taira/]
+### [taira](./keyboards/taira)
 
-![layout][(./keyboards/taira/taira.svg)
+![layout](./keyboards/taira/taira.svg)
 
 Configuration for the [taira keyboard][taira-keyboard] adopted from the [original source][taira-cfg].
 
