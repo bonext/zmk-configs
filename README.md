@@ -10,29 +10,33 @@ nix build .#lily58
 nix build .#taira
 ```
 
-Then flash contents of `result/`
+Then manually flash contents of `result/`
 
 ## Keyboards
 
 ### [Lily58][./keyboards/lily58/]
 
-My configuration based on what was [included in ZMK][lily58-cfg].
-
 ![layout](./keyboards/lily58/lily58.svg)
 
+My configuration based on what was [included in ZMK][lily58-cfg].
+
 ### [taira][./keyboards/taira/]
+
+![layout][(./keyboards/taira/taira.svg)
 
 Configuration for the [taira keyboard][taira-keyboard] adopted from the [original source][taira-cfg].
 
 All the unmodified source files taken from the [taira configuration][taira-cfg] have a comment indicating original attribution on top. I am **not** the author of any code in those.
 
-![layout][(./keyboards/taira/taira.svg)
+Example of attribution comment
 
-Draw commands using [keymap-drawer CLI][keymap-drawer-cli]:
-
-```bash
-uv run keymap parse -z taira.keymap > ~/tmp/keymap.yaml
-uv run keymap draw -n '5554^552vvv2vvv 2vvv2vvv54^5555' ~/tmp/keymap.yaml > taira.svg
+```
+# Original source: <permalink>
+#
+# <full license text for original source>
+#
+#
+# ORIGINAL CONTENTS BELOW THIS LINE -----
 ```
 
 [zmk-nix]: https://github.com/lilyinstarlight/zmk-nix
