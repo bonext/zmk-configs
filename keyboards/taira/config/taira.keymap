@@ -5,6 +5,7 @@
  */
 
 #include <behaviors.dtsi>
+#include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 
 #define DEFAULT 0
@@ -27,13 +28,63 @@
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {
+        miryoku_base {
             bindings = <
-&none  &none       &none       &none        &none        &none                                                                 &none  &none        &none        &none       &none          &none
-&none  &kp Q       &kp W       &kp E        &kp R        &kp T                                                                 &kp Y  &kp U        &kp I        &kp O       &kp P          &none
-&none  &hm LGUI A  &hm LALT S  &hm RCTRL D  &hm LSHFT F  &kp G                                                                 &kp H  &hm RSHFT J  &hm RCTRL K  &hm LALT L  &hm RGUI SEMI  &none
-&none  &kp Z       &kp X       &kp C        &kp V        &kp B                 &none       &none  &none  &none                 &kp N  &kp M        &kp COMMA    &kp DOT     &kp SLASH      &none
-&none  &none       &none       &kp LGUI                         &kp BACKSPACE  &kp DELETE  &none  &none  &kp ENTER  &kp SPACE                      &kp LEFT     &none       &none          &none
+&none  &none       &none       &none         &none        &none                                                                    &none  &none        &none         &none       &none          &none
+&none  &kp Q       &kp W       &kp E         &kp R        &kp T                                                                    &kp Y  &kp U        &kp I         &kp O       &kp P          &none
+&none  &hm LGUI A  &hm LALT S  &hm RCTRL D   &hm LSHFT F  &kp G                                                                    &kp H  &hm RSHFT J  &hm RCTRL K   &hm LALT L  &hm RGUI SEMI  &none
+&none  &kp Z       &kp X       &kp C         &kp V        &kp B               &none    &none  &none  &none                         &kp N  &kp M        &kp COMMA     &kp DOT     &kp SLASH      &none
+&none  &none       &none       &lt 1 ESCAPE                      &lt 2 SPACE  &kp TAB  &none  &none  &lt 3 ENTER  &lt 4 BACKSPACE                      &lt 5 DELETE  &none       &none          &none
+            >;
+        };
+
+        miryoku_media {
+            bindings = <
+&none  &none       &none     &none      &none      &none                                            &none         &none         &none              &none            &none         &none
+&none  &bt BT_CLR  &none     &none      &none      &none                                            &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2       &bt BT_SEL 3     &bt BT_SEL 4  &none
+&none  &kp LGUI    &kp LALT  &kp LCTRL  &kp LSHFT  &none                                            &none         &kp K_MUTE    &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &none         &none
+&none  &none       &none     &none      &none      &none         &none  &none  &none  &none         &none         &none         &none              &none            &none         &none
+&none  &none       &none     &none                        &none  &none  &none  &none  &none  &none                              &none              &none            &none         &none
+            >;
+        };
+
+        miryoku_nav {
+            bindings = <
+&none  &none     &none     &none      &none      &none                                            &none       &none     &none          &none        &none      &none
+&none  &none     &none     &none      &none      &none                                            &none       &none     &none          &none        &none      &none
+&none  &kp LGUI  &kp LALT  &kp LCTRL  &kp LSHFT  &none                                            &kp CAPS    &kp LEFT  &kp DOWN       &kp UP       &kp RIGHT  &none
+&none  &none     &none     &none      &none      &none         &none  &none  &none  &none         &kp INSERT  &kp HOME  &kp PAGE_DOWN  &kp PAGE_UP  &kp END    &none
+&none  &none     &none     &none                        &none  &none  &none  &none  &none  &none                        &none          &none        &none      &none
+            >;
+        };
+
+        miryoku_sym {
+            bindings = <
+&none  &none      &none          &none         &none      &none                                                           &none  &none           &none      &none     &none     &none
+&none  &kp LBRC   &kp AMPERSAND  &kp ASTERISK  &kp LPAR   &kp RBRC                                                        &none  &none           &none      &none     &none     &none
+&none  &kp COLON  &kp DOLLAR     &kp PERCENT   &kp CARET  &kp PLUS                                                        &none  &kp LEFT_SHIFT  &kp LCTRL  &kp LALT  &kp LGUI  &none
+&none  &kp TILDE  &kp EXCL       &kp AT        &kp HASH   &kp PIPE            &none           &none  &none  &none         &none  &none           &none      &none     &none     &none
+&none  &none      &none          &kp LPAR                           &kp RPAR  &kp UNDERSCORE  &none  &none  &none  &none                         &none      &none     &none     &none
+            >;
+        };
+
+        miryoku_num {
+            bindings = <
+&none  &none             &none   &none   &none   &none                                                             &none  &none      &none      &none     &none     &none
+&none  &kp LEFT_BRACKET  &kp N7  &kp N8  &kp N9  &kp RIGHT_BRACKET                                                 &none  &none      &none      &none     &none     &none
+&none  &kp SEMICOLON     &kp N4  &kp N5  &kp N6  &kp EQUAL                                                         &none  &kp LSHFT  &kp LCTRL  &kp LALT  &kp LGUI  &none
+&none  &kp GRAVE         &kp N1  &kp N2  &kp N3  &kp BACKSLASH              &none      &none  &none  &none         &none  &none      &none      &none     &none     &none
+&none  &none             &none   &none                              &kp N0  &kp MINUS  &none  &none  &none  &none                    &none      &none     &none     &none
+            >;
+        };
+
+        miryoku_fun {
+            bindings = <
+&none  &none    &none   &none       &none   &none                                                      &none  &none      &none      &none     &none     &none
+&none  &kp F12  &kp F7  &kp F8      &kp F9  &kp PRINTSCREEN                                            &none  &none      &none      &none     &none     &none
+&none  &kp F11  &kp F4  &kp F5      &kp F6  &kp SCROLLLOCK                                             &none  &kp LSHFT  &kp LCTRL  &kp LALT  &kp LGUI  &none
+&none  &kp F10  &kp F1  &kp F2      &kp F3  &kp PAUSE_BREAK         &none  &none  &none  &none         &none  &none      &none      &none     &none     &none
+&none  &none    &none   &kp K_MENU                           &none  &none  &none  &none  &none  &none                    &none      &none     &none     &none
             >;
         };
     };
