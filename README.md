@@ -26,6 +26,13 @@ My configuration based on what was [included in ZMK][lily58-cfg].
 
 Configuration for the [taira keyboard][taira-keyboard] adopted from the [original source][taira-cfg].
 
+## Cool Helper Tools
+
+- [keymap editor](https://nickcoutsos.github.io/keymap-editor/)
+- [keymap drawer](https://keymap-drawer.streamlit.app/)
+
+## Attribution
+
 All the unmodified source files taken from the [taira configuration][taira-cfg] have a comment indicating original attribution on top. I am **not** the author of any code in those.
 
 Example of attribution comment
