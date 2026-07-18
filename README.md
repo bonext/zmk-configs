@@ -22,7 +22,7 @@ My configuration based on what was [included in ZMK][lily58-cfg].
 
 ### [taira](./keyboards/taira)
 
-![layout](./keyboards/taira/taira.svg)
+![layout](./keyboards/taira/taira.png)
 
 Configuration for the [taira keyboard][taira-keyboard] adopted from the [original source][taira-cfg].
 
